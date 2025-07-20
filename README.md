@@ -32,9 +32,9 @@ A sophisticated, domain-agnostic document intelligence system that extracts and 
     cd Adobe_challenge1B
 2. **(Optional but recommended) Create and activate a Python virtual environment**
     python -m venv venv
-    # On Windows:
+    #### On Windows:
     venv\Scripts\activate
-    # On Mac/Linux:
+    #### On Mac/Linux:
     source venv/bin/activate
 3. **Install dependencies**
     pip install -r requirements.txt
@@ -76,7 +76,7 @@ python src/main.py --input data/challenge1b_input.json --output data/challenge1b
 ## ⚙️ Configuration
 
 The system is highly configurable through `config.json`:
-
+```json
 {
 "max_workers": 4, // Parallel processing threads
 "timeout": 30, // Processing timeout per document
@@ -91,7 +91,7 @@ The system is highly configurable through `config.json`:
 "semantic_weight": 0.30 // Semantic importance weight
 }
 }
-
+```
 ## 🎯 Performance Metrics
 
 | Metric | Target | Achieved |
@@ -105,6 +105,7 @@ The system is highly configurable through `config.json`:
 ## 📁 Input/Output Format
 
 ### Input Format
+```json
 {
 "documents": [
 {"filename": "document1.pdf"},
@@ -117,8 +118,9 @@ The system is highly configurable through `config.json`:
 "task": "Prepare comprehensive literature review focusing on methodologies"
 }
 }
-
+```
 ### Output Format
+```json
 {
 "metadata": {
 "input_documents": ["doc1.pdf", "doc2.pdf"],
@@ -142,7 +144,7 @@ The system is highly configurable through `config.json`:
 }
 ]
 }
-
+```
 ## 📈 Performance Optimization
 
 ### For Large Documents
