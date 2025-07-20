@@ -1,0 +1,21 @@
+{
+  "max_workers": 4,
+  "timeout": 30,
+  "min_section_length": 30,
+  "max_snippet_length": 300,
+  "top_n": 10,
+  "ranking": {
+    "max_features": 15000,
+    "ngram_range": [1, 3],
+    "min_df": 1,
+    "max_df": 0.9,
+    "tfidf_weight": 0.35,
+    "bm25_weight": 0.35,
+    "semantic_weight": 0.30
+  },
+  "processing": {
+    "enable_font_analysis": true,
+    "enable_section_classification": true,
+    "enable_metadata_extraction": true
+  }
+}
