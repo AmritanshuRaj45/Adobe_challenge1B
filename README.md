@@ -21,34 +21,55 @@ A sophisticated, domain-agnostic document intelligence system that extracts and 
 
 ### Prerequisites
 
-- Python 3.8 or higher
-- pip package manager
+- Python 3.8 or higher  
+- pip package manager  
 - 4GB RAM minimum (8GB recommended)
 
 ### Installation
 
 1. **Clone the repository**
-    git clone <repository-url>
-    cd Adobe_challenge1B
+   ```bash
+   git clone <repository-url>
+   cd Adobe_challenge1B
+   ```
+
 2. **(Optional but recommended) Create and activate a Python virtual environment**
-    python -m venv venv
-    #### On Windows:
-    venv\Scripts\activate
-    #### On Mac/Linux:
-    source venv/bin/activate
+   ```bash
+   python -m venv venv
+   ```
+
+   #### On Windows:
+   ```bash
+   venv\Scripts\activate
+   ```
+
+   #### On Mac/Linux:
+   ```bash
+   source venv/bin/activate
+   ```
+
 3. **Install dependencies**
-    pip install -r requirements.txt
-    python -m spacy download en_core_web_sm
+   ```bash
+   pip install -r requirements.txt
+   python -m spacy download en_core_web_sm
+   ```
+
 ### Basic Usage
 
-Run with default settings
-python src/main.py --input data/challenge1b_input.json --output data/challenge1b_output.json 
+**Run with default settings**
+```bash
+python src/main.py --input data/challenge1b_input.json --output data/challenge1b_output.json
+```
 
-Run with optimized configuration (recommended)
+**Run with optimized configuration (recommended)**
+```bash
 python src/main.py --input data/challenge1b_input.json --output data/challenge1b_output.json --config config.json
+```
 
-Run with custom section count
+**Run with custom section count**
+```bash
 python src/main.py --input data/challenge1b_input.json --output data/challenge1b_output.json --config config.json --top-n 15
+```
 
 
 ## 📊 Supported Use Cases
