@@ -54,7 +54,7 @@ A sophisticated, domain-agnostic document intelligence system that extracts and 
 3. **Install dependencies**
    ```bash
    pip install -r requirements.txt
-   python -m spacy download en_core_web_sm
+   python -m spacy download en_core_web_md
    ```
 
 ### Basic Usage
@@ -66,12 +66,12 @@ python src/main.py --input data/challenge1b_input.json --output data/challenge1b
 
 **Run with optimized configuration (recommended)**
 ```bash
-python src/main.py --input data/challenge1b_input.json --output data/challenge1b_output.json --config config.json
+python src/main.py --input data/challenge1b_input.json --output data/challenge1b_output.json --config src/config.json
 ```
 
 **Run with custom section count**
 ```bash
-python src/main.py --input data/challenge1b_input.json --output data/challenge1b_output.json --config config.json --top-n 15
+python src/main.py --input data/challenge1b_input.json --output data/challenge1b_output.json --config src/config.json --top-n 15
 ```
 
 ---
