@@ -15,12 +15,13 @@ class UniversalRankingSystem:
         # Initialize vectorizer with universal parameters
         self.tfidf_vectorizer = TfidfVectorizer(
             max_features=self.config.get('max_features', 10000),
-            ngram_range=self.config.get('ngram_range', (1, 3)),
+            ngram_range=tuple(self.config.get('ngram_range', (1, 3))),  # <--- this is key!
             stop_words='english',
             min_df=self.config.get('min_df', 1),
             max_df=self.config.get('max_df', 0.9),
-            sublinear_tf=True  # Use sublinear scaling
+            sublinear_tf=True
         )
+
     
     def _get_default_config(self) -> Dict:
         """Default configuration for universal use"""

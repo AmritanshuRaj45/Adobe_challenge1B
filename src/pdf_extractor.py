@@ -11,7 +11,7 @@ class UniversalPDFExtractor:
     def __init__(self, max_workers: int = 4, timeout: int = 30):
         self.max_workers = max_workers
         self.timeout = timeout
-        
+
     def extract_pdf_with_metadata(self, pdf_path: str) -> List[Dict]:
         """Extract PDF with enhanced metadata for universal processing"""
         try:
@@ -30,7 +30,7 @@ class UniversalPDFExtractor:
                 text_stats = self._calculate_text_statistics(text)
                 
                 pages.append({
-                    "page_number": i + 1,
+                    "page_number": i,  # Changed from i + 1 to i (0-based indexing)
                     "text": text,
                     "font_info": font_info,
                     "text_statistics": text_stats,
@@ -41,11 +41,10 @@ class UniversalPDFExtractor:
             
             doc.close()
             return pages
-            
         except Exception as e:
             logging.error(f"Error extracting PDF {pdf_path}: {e}")
             return []
-    
+
     def _extract_font_metadata(self, dict_data: Dict) -> List[Dict]:
         """Extract font metadata for section detection"""
         font_info = []
@@ -62,8 +61,9 @@ class UniversalPDFExtractor:
                             'text': span.get('text', ''),
                             'bbox': span.get('bbox', [])
                         })
+        
         return font_info
-    
+
     def _calculate_text_statistics(self, text: str) -> Dict:
         """Calculate universal text statistics"""
         words = text.split()
@@ -76,7 +76,7 @@ class UniversalPDFExtractor:
             'paragraph_count': len([p for p in text.split('\n\n') if p.strip()]),
             'uppercase_ratio': sum(1 for c in text if c.isupper()) / len(text) if text else 0
         }
-    
+
     def extract_documents_text(self, pdf_filenames: List[str], docs_dir: str = "data/docs") -> Dict:
         """Universal document extraction with parallel processing"""
         extracted = {}
